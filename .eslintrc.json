@@ -1,0 +1,104 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": ["airbnb-base", "plugin:react/recommended", "plugin:promise/recommended", "prettier"],
+    "plugins": ["react", "react-native", "prettier"],
+    "rules": {
+        "prefer-const": "off",
+        "no-var": "error",
+        "no-const-assign": "error",
+        "no-new-object": "error",
+        "object-shorthand": "error",
+        "no-prototype-builtins": "error",
+        "no-array-constructor": "warn",
+        "array-callback-return": "error",
+        "prefer-destructuring": [
+            "warn",
+            {
+                "array": false,
+                "object": true
+            },
+            {
+                "enforceForRenamedProperties": false
+            }
+        ],
+        "quotes": ["error", "double", {"avoidEscape": true, "allowTemplateLiterals": true}],
+        "prefer-template": "warn",
+        "no-useless-concat": "warn",
+        "func-style": "off",
+        "no-loop-func": "error",
+        "no-await-in-loop": "off",
+        "no-new-func": "error",
+        "no-param-reassign": "off",
+        "vars-on-top": "off",
+        "no-use-before-define": "off",
+        "prefer-arrow-callback": "error",
+        "arrow-parens": "off",
+        "arrow-body-style": "off",
+        "no-confusing-arrow": "error",
+        "no-dupe-class-members": "error",
+        "no-duplicate-imports": "error",
+        "dot-notation": "off",
+        "no-multi-assign": "error",
+        "no-plusplus": "off",
+        "max-len": "off",
+        "operator-linebreak": ["error", "after", {"overrides": {"?": "before", ":": "before"}}],
+        "eqeqeq": "error",
+        "no-case-declarations": "error",
+        "no-nested-ternary": "error",
+        "no-multiple-empty-lines": ["error", {"max": 1, "maxEOF": 1}],
+        "camelcase": ["error", {"properties": "always", "ignoreDestructuring": false}],
+        "spaced-comment": "off",
+        "for-direction": "error",
+        "no-async-promise-executor": "error",
+        "getter-return": "error",
+        "no-unused-vars": "warn",
+        "no-underscore-dangle": "off",
+        "func-names": "off",
+        "brace-style": "off",
+        "comma-dangle": ["warn", "always-multiline"],
+        "no-console": "off",
+        "no-continue": "off",
+        "consistent-return": "off",
+        "no-inner-declarations": "off",
+        "import/no-cycle": "error",
+        "class-methods-use-this": [
+            "error",
+            {
+                "exceptMethods": [
+                    "render",
+                    "componentWillMount",
+                    "componentDidMount",
+                    "componentWillReceiveProps",
+                    "componentWillUnMount",
+                    "componentShouldUpdate",
+                    "componentDidUpdate",
+                    "shouldComponentUpdate"
+                ]
+            }
+        ],
+        "promise/always-return": "off",
+        "promise/no-promise-in-callback": "off",
+        "promise/prefer-await-to-then": "error",
+        "promise/prefer-await-to-callbacks": "error",
+        "import/newline-after-import": "warn",
+
+        "react/destructuring-assignment": ["off"],
+        "react/prop-types": "off",
+        "prettier/prettier": ["warn"]
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}

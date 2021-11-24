@@ -1,0 +1,27 @@
+
+node_modules/
+
+android/\.gradle/
+
+android/build/
+
+android/\.idea/
+
+android/app/build/
+
+\.vscode/
+android/app/src/main/assets/index.android.bundle
+android/app/src/main/assets/index.android.bundle.meta
+.env*
+!.env.default
+# Bundle artifact
+*.jsbundle
+
+local.properties
+debuggerWorker.js
+index.bundle
+index.android.bundle
+
+
+ios/Pods/
+ios/build/

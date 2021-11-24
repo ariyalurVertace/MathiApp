@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Police - Central Zone</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey" value="@string/CODE_PUSH_KEY_ANDROID"></string>
+</resources>
