@@ -10,6 +10,7 @@ import {
   Platform,
   ScrollView,
   KeyboardAvoidingView,
+  AsyncStorage,
 } from 'react-native';
 // import * as COLOR_CONSTANT from "../common/constants/color_constants";
 
@@ -18,11 +19,27 @@ export default class Home extends React.Component {
     mobile: '',
     Password: '',
   };
+  _retrieveData = async () =>{
+    try{
+      const value = await AsyncStorage.getItem('lastname');
+      console.warn(value)
+      this.setState({value:value})
+    }catch(error){      
+    }
+  };
+  componentDidMount(){
+    var that = this;
+    that._retrieveData();
+  }
 
   render() {
+    const lastname = this.state.value;
+    console.warn(lastname)
     return (
       <View>
-        <Text>Home</Text>
+        <Text style={styles.title}>Home
+        </Text>
+        <Text style={styles.title}>{lastname}</Text>
       </View>
     );
   }

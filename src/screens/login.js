@@ -22,7 +22,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
-        <StatusBar backgroundColor={'red'} barStyle="light-content" />
+        <StatusBar backgroundColor={'black'} barStyle="light-content" />
         <ScrollView
           contentContainerStyle={styles.contentContainerStyle}
           keyboardShouldPersistTaps="handled">
@@ -42,7 +42,7 @@ export default class Login extends React.Component {
               }}
             />
             <View style={styles.appTextContainer}>
-              <Text style={styles.appText}>{'APP NAME'}</Text>
+              <Text style={styles.appText}>{'MATHI'}</Text>
             </View>
             <View style={styles.inputView}>
               <TextInput
@@ -75,7 +75,11 @@ export default class Login extends React.Component {
             <TouchableOpacity
               onPress={async () => {
                 // this.login();
-                console.warn('login');
+                await AsyncStorage.setItem(
+                  'last name' ,
+                  'I like to save it.'
+                );
+                  console.warn('login');
                 this.props.navigation.navigate('home');
               }}
               style={styles.loginBtn}>
@@ -90,6 +94,7 @@ export default class Login extends React.Component {
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -125,7 +130,7 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     width: '80%',
-    backgroundColor: 'red',
+    backgroundColor: 'skyblue',
     borderRadius: 25,
     height: 50,
     alignItems: 'center',
@@ -137,7 +142,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   appText: {
-    color: 'black',
+    color: '#a8324c',
     fontSize: 22,
     fontWeight: 'bold',
   },
@@ -166,6 +171,6 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     alignSelf: 'center',
     fontSize: 13,
-    color: 'black',
+    color: '#a8324c',
   },
 });
