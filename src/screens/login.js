@@ -10,6 +10,7 @@ import {
   Platform,
   ScrollView,
   KeyboardAvoidingView,
+  AsyncStorage,
 } from 'react-native';
 // import * as COLOR_CONSTANT from "../common/constants/color_constants";
 
@@ -35,14 +36,14 @@ export default class Login extends React.Component {
               }}
               source={{
                 uri:
-                  'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                  'https://previews.123rf.com/images/putracetol/putracetol1805/putracetol180504791/101698836-m-letter-splash-logo-icon-design.jpg',
               }}
               imageStyle={{
                 resizeMode: 'contain',
               }}
             />
             <View style={styles.appTextContainer}>
-              <Text style={styles.appText}>{'APP NAME'}</Text>
+              <Text style={styles.appText}>{'MATHI'}</Text>
             </View>
             <View style={styles.inputView}>
               <TextInput
@@ -75,6 +76,11 @@ export default class Login extends React.Component {
             <TouchableOpacity
               onPress={async () => {
                 // this.login();
+                await AsyncStorage.setItem(
+                  'lastname',
+                  'I Like to solve it'
+                )
+                // local storage .setItem("lastname,"smith");
                 console.warn('login');
                 this.props.navigation.navigate('home');
               }}

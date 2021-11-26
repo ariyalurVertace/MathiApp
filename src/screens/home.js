@@ -10,6 +10,7 @@ import {
   Platform,
   ScrollView,
   KeyboardAvoidingView,
+  
 } from 'react-native';
 // import * as COLOR_CONSTANT from "../common/constants/color_constants";
 
@@ -18,11 +19,27 @@ export default class Home extends React.Component {
     mobile: '',
     Password: '',
   };
+   _retraieveData = async () => {
+     try{
+       const value =await AsyncStorage.getItem('lastname');
+       console.warn(value)
+       this.setState({value:value})
+     }catch(error){
+
+     }
+   };
+   componentDidMount(){
+     var that=this;
+     that._retraieveData();
+   }
 
   render() {
+    const lastname=this.state.value;
+    console.warn(lastname)
     return (
       <View>
-        <Text>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>{lastname}</Text>
       </View>
     );
   }
@@ -35,3 +52,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
