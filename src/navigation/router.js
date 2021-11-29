@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screens/home';
 import Login from '../screens/login';
 import Splash from '../screens/splash';
+import Register from '../screens/register';
 import {navigationRef} from './navigation_service';
 
 const Stack = createStackNavigator();
@@ -26,6 +27,13 @@ function App() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="register"
+          component={Register}
+          options={{
+            headerShown: false,
+          }}
+          />
         <Stack.Screen
           name="home"
           component={Home}
