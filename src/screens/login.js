@@ -32,6 +32,7 @@ export default class Login extends React.Component {
           <View style={styles.container}>
             <Image
               style={{
+                borderRadius:5,
                 width: 180,
                 height: 180,
                 resizeMode: 'contain',

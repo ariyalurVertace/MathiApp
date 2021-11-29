@@ -61,13 +61,14 @@ import React,
         position: 'absolute',  
         width: '100%',  
         height: '100%',  
+        backgroundColor:'black',
+        
       },  
    
     SplashScreen_ChildView:  
     {  
         justifyContent: 'center',  
-        alignItems: 'center',  
-        backgroundColor: '#00BCD4',  
+        alignItems: 'center',    
         flex:1,  
     },  
 }); 

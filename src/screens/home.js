@@ -1,4 +1,5 @@
-import React from 'react';
+import React,
+{Component} from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,36 +12,36 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   AsyncStorage,
+  SearchBar
 } from 'react-native';
+
 import login from "./login"
 // import * as COLOR_CONSTANT from "../common/constants/color_constants";
 
-export default class Home extends React.Component {
+export default class Home extends Component {
   state = {
-    mobile: '',
-    Password: '',
+    search:'',
   };
-  ajithkumar = async () => {
-    try {
-      const value = await AsyncStorage.getItem('lastname');
-      console.warn(value)
-      this.setState({value:value})
-    } catch (error) {
-    }
-  };
-
-  componentDidMount(){  
-    this.ajithkumar();
-   } 
+  updateSearch = (search) => 
+  {   
+ this.setState({ search }); 
+ };
+ 
   render() {
+    const search = this.state.value;
     // let name=localStorage.getItem("mobile")
-    const lastname = this.state.value;
-    console.warn(lastname)
+    console.warn(search)
     return (
-      <View>
-        <Text style={styles.title}>Home</Text>
-        <Text style={styles.title}>{lastname}</Text>
-      </View>
+      <View>    
+    <SearchBar style={styles.container}>    
+    placeholder="Type Here..."      
+    onChangeText={this.updateSearch}     
+    value={search}      
+    </SearchBar>    
+    <Text style={styles.title}>Home</Text>
+    </View>
+   
+       
     );
   }
 }
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor:'blue',
   },
   title:
   {
