@@ -7,11 +7,10 @@ import {
   TouchableOpacity,
   StatusBar,
   Image,
-
   ScrollView,
   KeyboardAvoidingView,
 } from 'react-native';
-import { AsyncStorage } from 'react-native';
+import {AsyncStorage} from 'react-native';
 
 // import * as COLOR_CONSTANT from "../common/constants/color_constants";
 
@@ -22,7 +21,6 @@ export default class Login extends React.Component {
   };
 
   render() {
-    
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
         <StatusBar backgroundColor={'red'} barStyle="light-content" />
@@ -32,14 +30,13 @@ export default class Login extends React.Component {
           <View style={styles.container}>
             <Image
               style={{
-                borderRadius:5,
+                borderRadius: 5,
                 width: 180,
                 height: 180,
                 resizeMode: 'contain',
               }}
               source={{
-                uri:
-                'https://mcdn.wallpapersafari.com/medium/90/43/xe1lmt.jpg',
+                uri: 'https://mcdn.wallpapersafari.com/medium/90/43/xe1lmt.jpg',
               }}
               imageStyle={{
                 resizeMode: 'contain',
@@ -59,7 +56,10 @@ export default class Login extends React.Component {
                 onSubmitEditing={() => {
                   this.otpInput.focus();
                 }}
-                onChangeText={text => this.setState({mobile1: text.trim()},()=>{console.log(this.state.mobile)})}
+                onChangeText={text =>
+                  this.setState({mobile1: text.trim()}
+                  )
+                }
               />
             </View>
             <View style={styles.inputView}>
@@ -79,16 +79,10 @@ export default class Login extends React.Component {
             <TouchableOpacity
               onPress={async () => {
                 // this.login();
-                this.setState({mobile:this.state.mobile1},()=>{console.log(this.state.mobile)})
-                
-                await AsyncStorage.setItem(
-                  'lastname',
-                  'I like to save it.'
-                );
+                this.setState({mobile: this.state.mobile1});
 
-                // localStorage.setItem("lastname", "Smith");
-                console.warn('login');
-                this.props.navigation.navigate('home');
+
+                // this.props.navigation.navigate('home');
               }}
               style={styles.loginBtn}>
               <Text style={styles.loginText}>{'Login'}</Text>

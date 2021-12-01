@@ -1,5 +1,4 @@
-import React,
-{Component} from 'react';
+import React, { Fragment } from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,37 +10,32 @@ import {
   Platform,
   ScrollView,
   KeyboardAvoidingView,
-  AsyncStorage,
-  SearchBar
+  AsyncStorage,  
 } from 'react-native';
-
-import login from "./login"
+import { Header } from 'react-native-elements';
 // import * as COLOR_CONSTANT from "../common/constants/color_constants";
 
-export default class Home extends Component {
+export default class Home extends React.Component {
   state = {
-    search:'',
+    mobile: '',
+    Password: '',
   };
-  updateSearch = (search) => 
-  {   
- this.setState({ search }); 
- };
- 
+  componentDidMount(){
+  }
+
   render() {
-    const search = this.state.value;
-    // let name=localStorage.getItem("mobile")
-    console.warn(search)
     return (
-      <View>    
-    <SearchBar style={styles.container}>    
-    placeholder="Type Here..."      
-    onChangeText={this.updateSearch}     
-    value={search}      
-    </SearchBar>    
-    <Text style={styles.title}>Home</Text>
-    </View>
-   
-       
+    <Fragment>
+      <Header
+       leftComponent={{ icon: 'menu', color: '#fff', iconStyle: { color: '#fff'} }}
+       centerComponent={{ text: 'HOME', style: { color: '#fff' } }}
+       rightComponent={{ icon: 'home', color: '#fff' }}
+      />
+        <View >
+        <Text style={styles.title}>Home
+        </Text>
+      </View>
+      </Fragment>
     );
   }
 }
@@ -51,15 +45,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:'blue',
+    backgroundColor:'#26d5de',
   },
   title:
   {
     fontSize:30,
-    padding: 10,
-    textAlign:"left",
-    color:'white',
-    backgroundColor:'black',
-    fontWeight:"bold",
+    color:'black',
+    textAlign:"center",
+    justifyContent:"center",
   }
+ 
 });
+
