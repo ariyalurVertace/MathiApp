@@ -72,20 +72,25 @@ export default class Login extends React.Component {
                 onChangeText={text => this.setState({Password: text.trim()})}
               />
             </View>
+            
             <TouchableOpacity
               onPress={async () => {
-                // this.login();
-                await AsyncStorage.setItem(
-                  'last name' ,
-                  'I like to save it.'
-                );
-                  console.warn('login');
+               
                 this.props.navigation.navigate('home');
               }}
               style={styles.loginBtn}>
               <Text style={styles.loginText}>{'Login'}</Text>
             </TouchableOpacity>
-          </View>
+            <View style={styles.signupTextCont}>
+            <Text style={styles.signupText}>If you have not a Account? 
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('register')}>
+            <Text style={styles.signupButton}>Register here
+             </Text>
+            </TouchableOpacity>
+             </Text>
+            </View>
+            </View>
+         
         </ScrollView>
         <View style={styles.poweredByContainer}>
           <Text style={styles.poweredBy}>{'Built with ❤️ by Vertace'}</Text>
@@ -130,21 +135,26 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     width: '80%',
-    backgroundColor: 'skyblue',
+    backgroundColor: '#34eba4',
     borderRadius: 25,
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 20,
   },
   loginText: {
     color: 'white',
+    fontWeight: 'bold', 
+    fontStyle:"italic",
+    fontSize:16,
+
   },
   appText: {
-    color: '#a8324c',
+    color: '#34eba4',
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: 'bold', 
+    fontStyle:"italic"
   },
   meetingNameText: {
     color: 'black',
@@ -172,5 +182,17 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 13,
     color: '#a8324c',
+  },
+  signupText: {
+    textAlignVertical: 'center',
+    alignSelf: 'center',
+    fontSize: 13,
+    color: 'black',
+  
+  },
+  signupButton: {
+    fontSize: 13,
+    color: 'blue',
+  paddingTop:5
   },
 });

@@ -16,10 +16,9 @@ import {
 } from 'react-native';
 const RegisterScreen = (props) => {
   const [userName, setUserName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [userAge, setUserAge] = useState('');
-  const [userAddress, setUserAddress] = useState('');
+  const [userMobilenumber, setUserMobilenumber] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  const [userConfirmpassword, setUserConfirmpassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState('');
   const [
@@ -27,9 +26,6 @@ const RegisterScreen = (props) => {
     setIsRegistraionSuccess
   ] = useState(false);
 
-  const emailInputRef = createRef();
-  const ageInputRef = createRef();
-  const addressInputRef = createRef();
   const passwordInputRef = createRef();
 
   const handleSubmitButton = () => {
@@ -38,30 +34,27 @@ const RegisterScreen = (props) => {
       alert('Please fill Name');
       return;
     }
-    if (!userEmail) {
-      alert('Please fill Email');
-      return;
-    }
-    if (!userAge) {
-      alert('Please fill Age');
-      return;
-    }
-    if (!userAddress) {
-      alert('Please fill Address');
+    if (!userMobilenumber) {
+      alert('Please fill Mobilenumber');
       return;
     }
     if (!userPassword) {
       alert('Please fill Password');
       return;
     }
-    //Show Loader
+    if (!userConfirmpassword) {
+      alert('Please fill Confirm password');
+      return;
+    }
+       //Show Loader
     setLoading(true);
     var dataToSend = {
       name: userName,
-      email: userEmail,
-      age: userAge,
-      address: userAddress,
+      mobilenumber: userMobilenumber,
       password: userPassword,
+      confirmpassword: userConfirmpassword,
+     
+     
     };
     var formBody = [];
     for (var key in dataToSend) {
@@ -71,36 +64,7 @@ const RegisterScreen = (props) => {
     }
     formBody = formBody.join('&');
 
-    fetch('http://localhost:3000/api/user/register', {
-      method: 'POST',
-      body: formBody,
-      headers: {
-        //Header Defination
-        'Content-Type':
-        'application/x-www-form-urlencoded;charset=UTF-8',
-      },
-    })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        //Hide Loader
-        setLoading(false);
-        console.log(responseJson);
-        // If server response message same as Data Matched
-        if (responseJson.status === 'success') {
-          setIsRegistraionSuccess(true);
-          console.log(
-            'Registration Successful. Please Login to proceed'
-          );
-        } else {
-          setErrortext(responseJson.msg);
-        }
-      })
-      .catch((error) => {
-        //Hide Loader
-        setLoading(false);
-        console.error(error);
-      });
-  };
+  }
   if (isRegistraionSuccess) {
     return (
       <View
@@ -110,7 +74,10 @@ const RegisterScreen = (props) => {
           justifyContent: 'center',
         }}>
         <Image
-          source={require('../Image/success.png')}
+          source={{
+            uri:
+              'https://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
+          }}
           style={{
             height: 150,
             resizeMode: 'contain',
@@ -124,14 +91,13 @@ const RegisterScreen = (props) => {
           style={styles.buttonStyle}
           activeOpacity={0.5}
           onPress={() => props.navigation.navigate('LoginScreen')}>
-          <Text style={styles.buttonTextStyle}>Login Now</Text>
+          <Text style={styles.buttonTextStyle}>Login </Text>
         </TouchableOpacity>
       </View>
     );
   }
   return (
-    <View style={{flex: 1, backgroundColor: '#307ecc'}}>
-      <Loader loading={loading} />
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
@@ -140,7 +106,10 @@ const RegisterScreen = (props) => {
         }}>
         <View style={{alignItems: 'center'}}>
           <Image
-            source={require('../image/mathi.png')}
+            source={{
+              uri:
+                'https://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
+            }}
             style={{
               width: '50%',
               height: 100,
@@ -155,8 +124,8 @@ const RegisterScreen = (props) => {
               style={styles.inputStyle}
               onChangeText={(UserName) => setUserName(UserName)}
               underlineColorAndroid="#f000"
-              placeholder="Enter Name"
-              placeholderTextColor="#8b9cb5"
+              placeholder="Name"
+              placeholderTextColor="#808080"
               autoCapitalize="sentences"
               returnKeyType="next"
               onSubmitEditing={() =>
@@ -168,13 +137,25 @@ const RegisterScreen = (props) => {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={(UserEmail) => setUserEmail(UserEmail)}
               underlineColorAndroid="#f000"
-              placeholder="Enter Email"
-              placeholderTextColor="#8b9cb5"
-              keyboardType="email-address"
-              ref={emailInputRef}
+              placeholder="Mobile Number"
+              placeholderTextColor="#808080"
+              keyboardType={'numeric'}
               returnKeyType="next"
+              onSubmitEditing={Keyboard.dismiss}
+              blurOnSubmit={false}
+            />
+          </View>
+          <View style={styles.SectionStyle}>
+            <TextInput
+              style={styles.inputStyle}
+              onChangeText={(UserPassword) =>  setUserPassword(UserPassword)}
+              underlineColorAndroid="#f000"
+              placeholder="Password"
+              placeholderTextColor="#808080"
+              ref={passwordInputRef}
+              returnKeyType="next"
+              secureTextEntry={true}
               onSubmitEditing={() =>
                 passwordInputRef.current &&
                 passwordInputRef.current.focus()
@@ -185,52 +166,17 @@ const RegisterScreen = (props) => {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={(UserPassword) =>
-                setUserPassword(UserPassword)
-              }
+              onChangeText={(UserConfirmpassword) => setUserConfirmpassword(UserConfirmpassword)}
               underlineColorAndroid="#f000"
-              placeholder="Enter Password"
-              placeholderTextColor="#8b9cb5"
+              placeholder="Confirm Password"
+              placeholderTextColor="#808080"
               ref={passwordInputRef}
               returnKeyType="next"
               secureTextEntry={true}
               onSubmitEditing={() =>
-                ageInputRef.current &&
-                ageInputRef.current.focus()
+                confirmpasswordInputRef.current &&
+                confirmpasswordInputRef.current.focus()
               }
-              blurOnSubmit={false}
-            />
-          </View>
-          <View style={styles.SectionStyle}>
-            <TextInput
-              style={styles.inputStyle}
-              onChangeText={(UserAge) => setUserAge(UserAge)}
-              underlineColorAndroid="#f000"
-              placeholder="Enter Age"
-              placeholderTextColor="#8b9cb5"
-              keyboardType="numeric"
-              ref={ageInputRef}
-              returnKeyType="next"
-              onSubmitEditing={() =>
-                addressInputRef.current &&
-                addressInputRef.current.focus()
-              }
-              blurOnSubmit={false}
-            />
-          </View>
-          <View style={styles.SectionStyle}>
-            <TextInput
-              style={styles.inputStyle}
-              onChangeText={(UserAddress) =>
-                setUserAddress(UserAddress)
-              }
-              underlineColorAndroid="#f000"
-              placeholder="Enter Address"
-              placeholderTextColor="#8b9cb5"
-              autoCapitalize="sentences"
-              ref={addressInputRef}
-              returnKeyType="next"
-              onSubmitEditing={Keyboard.dismiss}
               blurOnSubmit={false}
             />
           </View>
@@ -244,6 +190,12 @@ const RegisterScreen = (props) => {
             activeOpacity={0.5}
             onPress={handleSubmitButton}>
             <Text style={styles.buttonTextStyle}>REGISTER</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.signinbuttonStyle}
+            activeOpacity={0.5}
+            onPress={()=>props.navigation.navigate('login')}>
+            <Text style={styles.signinbuttonTextstyle}>SIGN IN </Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
       </ScrollView>
@@ -262,15 +214,15 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: '#34eba4',
     borderWidth: 0,
     color: '#FFFFFF',
-    borderColor: '#7DE24E',
+    borderColor: 'black',
     height: 40,
     alignItems: 'center',
     borderRadius: 30,
-    marginLeft: 35,
-    marginRight: 35,
+    marginLeft:110,
+    marginRight: 110,
     marginTop: 20,
     marginBottom: 20,
   },
@@ -278,15 +230,17 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     paddingVertical: 10,
     fontSize: 16,
+    fontWeight:"bold", 
+    fontStyle:"italic"
   },
   inputStyle: {
     flex: 1,
-    color: 'white',
+    color: 'black',
     paddingLeft: 15,
     paddingRight: 15,
     borderWidth: 1,
     borderRadius: 30,
-    borderColor: '#dadae8',
+    borderColor: '#dedede',
   },
   errorTextStyle: {
     color: 'red',
@@ -294,9 +248,31 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   successTextStyle: {
-    color: 'white',
+    color: '#34eba4',
     textAlign: 'center',
     fontSize: 18,
     padding: 30,
+  },
+  signinbuttonStyle: {
+    backgroundColor: '#3489eb',
+    borderWidth: 0,
+    color: '#FFFFFF',
+    borderColor: 'black',
+    height: 40,
+    alignItems: 'center',
+    borderRadius: 30,
+    marginLeft: 130,
+    marginRight: 130,
+    marginTop: 20,
+    marginBottom: 20,
+  
+  },
+  signinbuttonTextstyle: {
+    color: '#FFFFFF',
+    paddingVertical: 10,
+    fontSize: 16,
+    fontWeight:"bold", 
+    fontStyle:"italic"
+    
   },
 });
