@@ -5,7 +5,7 @@ import Home from '../screens/home';
 import Login from '../screens/login';
 import Splash from '../screens/splash';
 import {navigationRef} from './navigation_service';
-
+import myorders from '../screens/myorders';
 const Stack = createStackNavigator();
 
 function App() {
@@ -33,6 +33,13 @@ function App() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="myorders"
+          component={myorders}
+          options={{
+            headerShown: false,
+          }}
+          />
       </Stack.Navigator>
     </NavigationContainer>
   );

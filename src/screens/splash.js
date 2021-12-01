@@ -4,11 +4,10 @@ Image, TouchableOpacity, Alert } from 'react-native';
 export default class Splash extends Component  
 {  
   state= {  
-          isVisible : true,  
-     
+  isVisible : true,     
  }  
   Hide_Splash_Screen=()=>{  
-   this.props.navigation.navigate("login")
+  this.props.navigation.navigate("login")
       
       
   
@@ -18,7 +17,7 @@ export default class Splash extends Component
    var that = this;  
    setTimeout(function(){  
      that.Hide_Splash_Screen();  
-   }, 5000);  
+   }, 4000);  
   }  
   
    render()  
