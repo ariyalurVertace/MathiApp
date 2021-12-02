@@ -79,10 +79,10 @@ export default class Login extends React.Component {
             <TouchableOpacity
               onPress={async () => {
                 // this.login();
-                this.setState({mobile: this.state.mobile1});
+                // this.setState({mobile: this.state.mobile1});
 
 
-                // this.props.navigation.navigate('home');
+                this.props.navigation.navigate('home');
               }}
               style={styles.loginBtn}>
               <Text style={styles.loginText}>{'Login'}</Text>
