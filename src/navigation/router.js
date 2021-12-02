@@ -5,6 +5,7 @@ import Home from '../screens/home';
 import Login from '../screens/login';
 import Splash from '../screens/splash';
 import Register from '../screens/register';
+import Settings from '../screens/settings';
 import {navigationRef} from './navigation_service';
 
 const Stack = createStackNavigator();
@@ -30,6 +31,13 @@ function App() {
         <Stack.Screen
           name="register"
           component={Register}
+          options={{
+            headerShown: false,
+          }}
+          />
+          <Stack.Screen
+          name="settings"
+          component={Settings}
           options={{
             headerShown: false,
           }}

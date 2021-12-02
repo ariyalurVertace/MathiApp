@@ -78,12 +78,15 @@ const RegisterScreen = (props) => {
             uri:
               'https://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
           }}
+          
           style={{
             height: 150,
             resizeMode: 'contain',
             alignSelf: 'center'
           }}
-        />
+          />
+         
+          
         <Text style={styles.successTextStyle}>
           Registration Successful
         </Text>
@@ -109,14 +112,19 @@ const RegisterScreen = (props) => {
             source={{
               uri:
                 'https://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
-            }}
+                  }}
             style={{
-              width: '50%',
-              height: 100,
+              width: '200%',
+              height: 150,
               resizeMode: 'contain',
-              margin: 30,
+              margin: 20,
             }}
+           
           />
+            <View style={styles.appTextContainer}>
+              <Text style={styles.appText}>{'MATHI'}</Text>
+            </View>
+
         </View>
         <KeyboardAvoidingView enabled>
           <View style={styles.SectionStyle}>
@@ -209,8 +217,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 40,
     marginTop: 20,
-    marginLeft: 35,
-    marginRight: 35,
+    marginLeft: 45,
+    marginRight: 45,
     margin: 10,
   },
   buttonStyle: {
@@ -272,7 +280,19 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     fontSize: 16,
     fontWeight:"bold", 
-    fontStyle:"italic"
-    
+    fontStyle:"italic"  
   },
+  appText: {
+    color: '#34eba4',
+    fontSize: 22,
+    fontWeight: 'bold', 
+    fontStyle:"italic"
+  },
+  appTextContainer:{
+    marginTop: 5,
+    marginBottom: 5,
+    alignItems: 'center',
+  }
+ 
+  
 });

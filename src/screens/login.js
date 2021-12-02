@@ -29,7 +29,7 @@ export default class Login extends React.Component {
           <View style={styles.container}>
             <Image
               style={{
-                width: 180,
+                width: 250,
                 height: 180,
                 resizeMode: 'contain',
               }}
@@ -76,18 +76,19 @@ export default class Login extends React.Component {
             <TouchableOpacity
               onPress={async () => {
                
-                this.props.navigation.navigate('home');
+                this.props.navigation.navigate('settings');
               }}
               style={styles.loginBtn}>
               <Text style={styles.loginText}>{'Login'}</Text>
             </TouchableOpacity>
             <View style={styles.signupTextCont}>
+            
             <Text style={styles.signupText}>If you have not a Account? 
             <TouchableOpacity onPress={()=>this.props.navigation.navigate('register')}>
             <Text style={styles.signupButton}>Register here
              </Text>
             </TouchableOpacity>
-             </Text>
+             </Text> 
             </View>
             </View>
          
@@ -134,21 +135,23 @@ const styles = StyleSheet.create({
     fontSize: 11,
   },
   loginBtn: {
-    width: '80%',
+    width: '50%',
     backgroundColor: '#34eba4',
     borderRadius: 25,
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 10,
+    marginTop: 5,
     marginBottom: 20,
+   
+
   },
   loginText: {
     color: 'white',
     fontWeight: 'bold', 
     fontStyle:"italic",
     fontSize:16,
-
+    
   },
   appText: {
     color: '#34eba4',
@@ -188,11 +191,15 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 13,
     color: 'black',
+    fontWeight:"bold", 
+    fontStyle:"italic"
   
   },
   signupButton: {
     fontSize: 13,
     color: 'blue',
-  paddingTop:5
+    paddingTop:5,
+    fontWeight:"bold", 
+    fontStyle:"italic"
   },
 });
