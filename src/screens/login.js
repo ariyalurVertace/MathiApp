@@ -10,6 +10,7 @@ import {
   Platform,
   ScrollView,
   KeyboardAvoidingView,
+  AsyncStorage,
 } from 'react-native';
 // import * as COLOR_CONSTANT from "../common/constants/color_constants";
 
@@ -22,7 +23,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
-        <StatusBar backgroundColor={'red'} barStyle="light-content" />
+        <StatusBar backgroundColor={'purple'} barStyle="light-content" />
         <ScrollView
           contentContainerStyle={styles.contentContainerStyle}
           keyboardShouldPersistTaps="handled">
@@ -35,14 +36,14 @@ export default class Login extends React.Component {
               }}
               source={{
                 uri:
-                  'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                  'https://5.imimg.com/data5/RG/EM/ZQ/ANDROID-91922305/product-jpeg-500x500.jpg',
               }}
               imageStyle={{
                 resizeMode: 'contain',
               }}
             />
             <View style={styles.appTextContainer}>
-              <Text style={styles.appText}>{'APP NAME'}</Text>
+              <Text style={styles.appText}>{'Mathi'}</Text>
             </View>
             <View style={styles.inputView}>
               <TextInput
@@ -75,6 +76,11 @@ export default class Login extends React.Component {
             <TouchableOpacity
               onPress={async () => {
                 // this.login();
+                await AsyncStorage.setItem(
+                  'lastname',
+                  'I Like to solve it'
+                )
+                // local storage .setItem("lastname,"smith");
                 console.warn('login');
                 this.props.navigation.navigate('home');
               }}
@@ -125,7 +131,7 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     width: '80%',
-    backgroundColor: 'red',
+    backgroundColor: 'purple',
     borderRadius: 25,
     height: 50,
     alignItems: 'center',
@@ -169,3 +175,4 @@ const styles = StyleSheet.create({
     color: 'black',
   },
 });
+
