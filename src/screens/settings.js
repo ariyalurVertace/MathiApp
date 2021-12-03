@@ -8,14 +8,15 @@ const SettingsScreen = (props) => {
       <View style={{flex: 1, padding: 16}}>
         <View
           style={{
+            paddingLeft:20,
             flex: 1,
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
           }}>
           <Text
             style={{
               fontSize: 20,
-              textAlign: 'center',
+              textAlign: 'left',
               marginBottom: 16,
             }}>
            <TouchableOpacity
