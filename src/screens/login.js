@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
   StyleSheet,
@@ -7,9 +8,7 @@ import {
   TouchableOpacity,
   StatusBar,
   Image,
-  Platform,
   ScrollView,
-  KeyboardAvoidingView,
 } from 'react-native';
 // import * as COLOR_CONSTANT from "../common/constants/color_constants";
 
@@ -19,7 +18,13 @@ export default class Login extends React.Component {
     Password: '',
   };
 
+  componentDidMount() {
+    console.log('log');
+    console.warn('warn');
+  }
+
   render() {
+    let {mobile} = this.state;
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
         <StatusBar backgroundColor={'red'} barStyle="light-content" />
@@ -29,17 +34,15 @@ export default class Login extends React.Component {
           <View style={styles.container}>
             <Image
               style={{
-                width: 180,
-                height: 180,
+                width: 300,
+                height: 300,
                 resizeMode: 'contain',
               }}
               source={{
                 uri:
                   'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
               }}
-              imageStyle={{
-                resizeMode: 'contain',
-              }}
+              // resizeMode={'repeat'}
             />
             <View style={styles.appTextContainer}>
               <Text style={styles.appText}>{'APP NAME'}</Text>
@@ -76,7 +79,7 @@ export default class Login extends React.Component {
               onPress={async () => {
                 // this.login();
                 console.warn('login');
-                this.props.navigation.navigate('home');
+                this.props.navigation.navigate('home', {mobile: mobile});
               }}
               style={styles.loginBtn}>
               <Text style={styles.loginText}>{'Login'}</Text>
