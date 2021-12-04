@@ -5,6 +5,7 @@ import Home from '../screens/home';
 import Login from '../screens/login';
 import Splash from '../screens/splash';
 import Search from '../screens/search';
+import Category from '../screens/category';
 import {navigationRef} from './navigation_service';
 
 const Stack = createStackNavigator();
@@ -41,6 +42,14 @@ function App() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="category"
+          component={Category}
+          options={{
+            headerShown: false,
+          }}
+        />
+       
       </Stack.Navigator>
     </NavigationContainer>
   );

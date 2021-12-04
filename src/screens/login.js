@@ -36,7 +36,7 @@ export default class Login extends React.Component {
                 resizeMode: 'contain',
               }}
               source={{
-                uri: 'https://mcdn.wallpapersafari.com/medium/90/43/xe1lmt.jpg',
+                uri: 'https://st4.depositphotos.com/27132560/29068/i/600/depositphotos_290682462-stock-photo-letter-logo-business-template-vector.jpg',
               }}
               imageStyle={{
                 resizeMode: 'contain',
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor:'white',
   },
   contentContainerStyle: {flexGrow: 1, justifyContent: 'center'},
   spinnerTextStyle: {

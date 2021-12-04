@@ -12,10 +12,11 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   AsyncStorage,
+  onPressButton,
+  Button,
 } from 'react-native';
 import {Header, SearchBar} from 'react-native-elements';
 // // import * as COLOR_CONSTANT from "../common/constants/color_constants";
-
 // export default class Home extends React.Component {
 //   state = {
 //     mobile: '',
@@ -87,13 +88,17 @@ import Search from './search';
 const App = () => {
   const [items, setItems] = useState([]);
   const [search, setSearch] = useState([]);
-
+  const item = [
+    'https://cdn.pixabay.com/photo/2021/11/11/20/49/sauerland-6787215_960_720.jpg',
+    'https://cdn.pixabay.com/photo/2021/11/23/13/32/forest-6818683_960_720.jpg',
+  ];
   useEffect(() => {
-    let items = Array.apply(null, Array(10)).map((v, i) => {
+    let items = item.map(x => {
       //Loop to make image array to show in slider
       return {
         source: {
-          uri: 'http://placehold.it/200x100?text=' + (i + 1),
+          uri: x,
+          useNativeDriver: true,
         },
       };
     });
@@ -101,6 +106,10 @@ const App = () => {
   }, []);
   const searchFunction = text => {
     setSearch(text);
+  };
+
+  const onPressButton = text => {
+    Alert.alert('You clicked the button!');
   };
 
   return (
@@ -126,10 +135,19 @@ const App = () => {
         />
         <Gallery
           style={{flex: 1, backgroundColor: 'black'}}
-          initialPage="1"
+          // initialPage="1"
           //initial image to show
           images={items}
         />
+        <View style={styles.buttonContainer}>
+          <Button onPress={onPressButton} title="Silk >>>" />
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button onPress={onPressButton} title="Cotton >>>" color="#1fbf9c" />
+        </View>
+        <View style={styles.seeall}>
+          <Button onPress={onPressButton} title="SEE ALL >>>" color="#cc33ff" />
+        </View>
       </View>
     </Fragment>
   );
@@ -139,8 +157,18 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.5,
+    flex: 0.7,
     justifyContent: 'center',
     marginTop: 30,
+  },
+  buttonContainer: {
+    margin: 5,
+    padding: 5,
+  },
+  seeall: {
+    fontWeight: 'bold',
+    color: '#b531a8',
+    margin: 5,
+    padding: 5,
   },
 });

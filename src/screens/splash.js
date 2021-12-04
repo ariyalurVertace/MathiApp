@@ -24,7 +24,7 @@ export default class Splash extends Component {
         <View style={styles.SplashScreen_ChildView}>
           <Image
             source={{
-              uri: 'https://mcdn.wallpapersafari.com/medium/90/43/xe1lmt.jpg',
+              uri: 'https://st4.depositphotos.com/27132560/29068/i/600/depositphotos_290682462-stock-photo-letter-logo-business-template-vector.jpg',
             }}
             style={{width: '100%', height: '100%', resizeMode: 'contain'}}
           />
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    backgroundColor: 'black',
+    backgroundColor: 'white',
   },
 
   SplashScreen_ChildView: {
