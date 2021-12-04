@@ -22,32 +22,32 @@ export default class Login extends React.Component {
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
-        <StatusBar backgroundColor={'red'} barStyle="light-content" />
+        <StatusBar backgroundColor={'#c936c7'} barStyle="light-content" />
         <ScrollView
           contentContainerStyle={styles.contentContainerStyle}
           keyboardShouldPersistTaps="handled">
           <View style={styles.container}>
             <Image
               style={{
-                width: 180,
-                height: 180,
+                width: 200,
+                height: 200,
                 resizeMode: 'contain',
               }}
               source={{
                 uri:
-                  'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                'https://media.istockphoto.com/photos/old-weaving-loom-picture-id838748728',
               }}
               imageStyle={{
                 resizeMode: 'contain',
               }}
             />
             <View style={styles.appTextContainer}>
-              <Text style={styles.appText}>{'APP NAME'}</Text>
+              <Text style={styles.appText}>{'Mathi'}</Text>
             </View>
             <View style={styles.inputView}>
               <TextInput
                 style={styles.inputText}
-                placeholder="Mobile number"
+                placeholder="Mobile Number"
                 placeholderTextColor="gray"
                 keyboardType={'numeric'}
                 maxLength={10}
@@ -66,7 +66,7 @@ export default class Login extends React.Component {
                 }}
                 style={styles.inputText}
                 placeholder="Password"
-                placeholderTextColor="gray"
+                placeholderTextColor="grey"
                 // keyboardType={"numeric"}
                 returnKeyType={'done'}
                 onChangeText={text => this.setState({Password: text.trim()})}
@@ -76,7 +76,7 @@ export default class Login extends React.Component {
               onPress={async () => {
                 // this.login();
                 console.warn('login');
-                this.props.navigation.navigate('home');
+                this.props.navigation.navigate('Home');
               }}
               style={styles.loginBtn}>
               <Text style={styles.loginText}>{'Login'}</Text>
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     width: '80%',
-    backgroundColor: 'red',
+    backgroundColor: '#c936c7',
     borderRadius: 25,
     height: 50,
     alignItems: 'center',
