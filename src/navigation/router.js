@@ -6,6 +6,7 @@ import Login from '../screens/login';
 import Splash from '../screens/splash';
 import Register from '../screens/register';
 import Settings from '../screens/settings';
+// import CustomsidebarMenu from'../screens/CustomsidebarMenu';
 import {navigationRef} from './navigation_service';
 
 const Stack = createStackNavigator();
@@ -42,6 +43,13 @@ function App() {
             headerShown: false,
           }}
           />
+           {/* <Stack.Screen
+          name="customsidebarmenu"
+          component={CustomsidebarMenu}
+          options={{
+            headerShown: false,
+          }}
+          /> */}
         <Stack.Screen
           name="home"
           component={Home}
