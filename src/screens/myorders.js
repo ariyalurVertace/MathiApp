@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Container, Content, View, Left, Right, Button, Icon, Grid, Col } from 'react-native';
 
-// Our custom files and classes import
-// import Navbar from './component/Navbar';
-// import SideMenuDrawer from '../component/SideMenuDrawer';
-// import Product from '../component/Product';
+import Navbar from '../component/Navbar';
+import SideMenuDrawer from '../component/sideMenudrawer';
+import Product from '../component/Product';
 
 
-export default class Category extends Component {
+export default class MyOrders extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -46,14 +45,14 @@ export default class Category extends Component {
     );
 
     return(
-      // <SideMenuDrawer ref={(ref) => this._sideMenuDrawer = ref}>
+      <SideMenuDrawer ref={(ref) => this._sideMenuDrawer = ref}>
           <Container style={{backgroundColor: '#fdfdfd'}}>
-            {/* <Navbar left={left} right={right} title={this.props.title} /> */}
+            <Navbar left={left} right={right} title={this.props.title} />
             <Content padder>
               {this.renderProducts()}
             </Content>
           </Container>
-      // </SideMenuDrawer>
+      </SideMenuDrawer>
     );
   }
 

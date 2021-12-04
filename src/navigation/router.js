@@ -5,7 +5,8 @@ import Home from '../screens/home';
 import Login from '../screens/login';
 import Splash from '../screens/splash';
 import {navigationRef} from './navigation_service';
-import myorders from '../screens/myorders';
+// import MyOrders from '../screens/myorders';
+import Product from '../screens/Product';
 const Stack = createStackNavigator();
 
 function App() {
@@ -26,6 +27,13 @@ function App() {
             headerShown: false,
           }}
         />
+         <Stack.Screen
+          name="product"
+          component={Product}
+          options={{
+            headerShown: false,
+          }}
+          />
         <Stack.Screen
           name="home"
           component={Home}
@@ -33,13 +41,14 @@ function App() {
             headerShown: false,
           }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="myorders"
-          component={myorders}
+          component={MyOrders}
           options={{
             headerShown: false,
           }}
-          />
+          />  */}
+         
       </Stack.Navigator>
     </NavigationContainer>
   );
