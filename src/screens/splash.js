@@ -26,7 +26,7 @@ export default class Splash extends Component
        let Splash_Screen = (  
             <View style={styles.SplashScreen_RootView}>  
                 <View style={styles.SplashScreen_ChildView}>  
-                      <Image source={{uri:'https://static.javatpoint.com/tutorial/react-native/images/react-native-tutorial.pngs'}}  
+                      <Image source={{uri:'https://lh3.googleusercontent.com/proxy/oB2CG63I_WdcaCxFGto10LmPQxx4HbJ4t_Ej33pDFFeDEmTz-IfKN0-IA0pzpeluYu-1TgWLYh2WppLpHlPk6jXC'}}  
                    style={{width:'100%', height: '100%', resizeMode: 'contain'}} />  
                </View>  
             </View> )  

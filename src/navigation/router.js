@@ -4,12 +4,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screens/home';
 import Login from '../screens/login';
 import Splash from '../screens/splash';
+import mycart from '../screens/mycart';
 import {navigationRef} from './navigation_service';
 // import Cart from '../screens/cart';
 
 const Stack = createStackNavigator();
 
-function App() {
+function App() {                   
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator initialRouteName="splash">
@@ -28,6 +29,13 @@ function App() {
           }}
         />
         <Stack.Screen
+          name="mycart"
+          component={Mycart}
+          options={{
+            headerShown: false,
+          }}
+        /> 
+        <Stack.Screen
           name="home"
           component={Home}
           options={{
@@ -35,8 +43,8 @@ function App() {
           }}
         /> 
         {/* <Stack.Screen
-          name="cart"
-          component={Cart}
+          name="mycart"
+          component={Mycart}
           options={{
             headerShown: false,
           }}

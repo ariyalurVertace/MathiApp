@@ -82,7 +82,7 @@ export default class Login extends React.Component {
                 )
                 // local storage .setItem("lastname,"smith");
                 console.warn('login');
-                this.props.navigation.navigate('home');
+                this.props.navigation.navigate('mycart');
               }}
               style={styles.loginBtn}>
               <Text style={styles.loginText}>{'Login'}</Text>
