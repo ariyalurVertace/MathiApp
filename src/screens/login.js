@@ -40,7 +40,7 @@ export default class Login extends React.Component {
               }}
               source={{
                 uri:
-                  'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLaYjEeXnBMw3erpqPA1EyutMLrt8pWrTzgw&usqp=CAU',
               }}
               // resizeMode={'repeat'}
             />

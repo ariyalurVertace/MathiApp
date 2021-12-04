@@ -55,7 +55,7 @@ export default class home extends React.Component {
       <TouchableOpacity
         activeOpacity={0.9}
         style={styles.item}
-        onPress={() => {
+        onPress={(item) => {
           //function
           console.warn(item.title);
         }}>
